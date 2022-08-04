@@ -1,13 +1,7 @@
 function App() {
   //const temp = 5;
 
-  return (
-    <div className="App">
-      {' '}
-      ffffffffffffffffffffffff fffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffff fffffffff
-    </div>
-  );
+  return <div className="App"> </div>;
 }
 
 export default App;
