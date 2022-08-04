@@ -30,7 +30,7 @@
     "eject": "react-scripts eject",
     "pre-commit": "lint-staged",
     "lint": "eslint --max-warnings=0 --ext .js,.ts,.jsx,.tsx src/",
-    "prettier": "prettier --write",
+    "prettier": "prettier -w --ext .js,.ts,.jsx,.tsx,.css,.scss src/",
     "prepare": "husky install"
   },
   "eslintConfig": {
