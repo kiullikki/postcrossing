@@ -1,9 +1,7 @@
 function App() {
-    return (
-    <div className="App">
-        
-    </div>
-    );
+  const temp = 1;
+  
+  return <div className="App"></div>
 }
 
-export default App;
+export default App
