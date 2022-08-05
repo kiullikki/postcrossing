@@ -42,8 +42,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run prettier && npm run updateIndexGit"
+      "pre-commit": "npm run pre-commit"
     }
+  },
+  "lint-staged":{
+    "eslint":"eslint --max-warnings=0",
+    "prettier": "prettier -w"
   },
   "browserslist": {
     "production": [
