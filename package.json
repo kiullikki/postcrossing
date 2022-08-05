@@ -30,8 +30,8 @@
     "eject": "react-scripts eject",
     "pre-commit": "lint-staged",
     "lint": "eslint --max-warnings=0 --ext .js,.ts,.jsx,.tsx src/",
-    "prettier": "prettier -w --ext .js,.ts,.jsx,.tsx,.css,.scss src/",
-    "updateIndexGit":"git add .",
+    "prettier": "prettier -w .",
+    "updateIndexGit": "git add .",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -42,11 +42,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pre-commit"
+      "pre-commit": "npm run lint && npm run prettier && npm run updateIndexGit"
     }
   },
-  "lint-staged":{
-    "eslint":"eslint --max-warnings=0",
+  "lint-staged": {
+    "eslint": "eslint --max-warnings=0",
     "prettier": "prettier -w"
   },
   "browserslist": {
