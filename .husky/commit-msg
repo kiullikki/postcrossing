@@ -5,26 +5,29 @@ MSG_FILE=$1
 FILE_CONTENT="$(cat $MSG_FILE)"
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 # Инициализация
-export REGEX_BRANCH='(^[A-Z]{2}-[0-9]{1,9})'
-export REGEX='(Add: |Fix: |Upd: |Ref: )'
+export REGEX_BRANCH='(^[A-Z]{2}-[0-9]{1,9})' # регулрка для задачи вида AA-123456789
+export REGEX='(Add: |Fix: |Upd: |Ref: )' # список допустимых прификсов
 export ERROR_MSG="Используйте в сообщении один из прификсов и тимлид скажет спасибо: \"${REGEX}\""
 export ERROR_TASK="Не удалось считать номер задачи из имени ветки, необходимо добавить в сообщение прификс с номером задачи в формате PC-111\n"
 export ERROR_BRANCH="Коммитить напрямую в $BRANCH запрещено. Пожалуйста создайте ветку для вашей задачи \n"
+export REGEX_STOP_BRANCH='(main|develop)' # список закрытых веток
 
-if [ "$BRANCH" = "main" ] || [ "$BRANCH" = "develop" ]; then
+# Проверяем на запрещенные для коммита ветки
+if [[ $BRANCH =~ $REGEX_STOP_BRANCH ]]; then
   printf "$ERROR_BRANCH"
   exit 1
 fi
 
-if [[ $BRANCH =~ $REGEX_BRANCH ]]; then
+# Если индекс задачи не введен пользователем то пытаемся получить его из имени ветки
+if [[ $BRANCH =~ $REGEX_BRANCH ]] && ! [[ $FILE_CONTENT =~ $REGEX_BRANCH ]]; then
   PRIFIX_TASK=`echo $BRANCH | grep -Poi -o $REGEX_BRANCH`
   sed -i.bak -e "1s/.*/${PRIFIX_TASK}_${FILE_CONTENT}/" "$MSG_FILE"
   FILE_CONTENT_MODIFY="$(cat $MSG_FILE)"
 else
-  FILE_CONTENT_MODIFY="$(cat $MSG_FILE)"
+  FILE_CONTENT_MODIFY=FILE_CONTENT
 fi
 
-
+# Проверяем корректность итогового сообщения коммита
 if [[ $FILE_CONTENT_MODIFY =~ $REGEX ]] && [[ $FILE_CONTENT_MODIFY =~ $REGEX_BRANCH ]]; then
   printf "Отличный коммит! Тимлид будет рад!\n "
   printf "Итоговый коммит: $FILE_CONTENT_MODIFY\n"
