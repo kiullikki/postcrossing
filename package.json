@@ -31,7 +31,7 @@
     "lint": "eslint --max-warnings=0 --ext .js,.ts,.jsx,.tsx src/",
     "prettier": "prettier -w .",
     "updateIndexGit": "git add .",
-    "prepare": "husky install"
+    "prepare": "husky install && chmod ug+x .husky/*"
   },
   "eslintConfig": {
     "extends": [
