@@ -9,6 +9,12 @@
     "updateIndexGit": "git add .",
     "prepare": "husky install"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
