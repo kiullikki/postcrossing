@@ -3,6 +3,5 @@
   "rules": {
     "jsx-quotes": [1, "prefer-double"]
   },
-  "ignorePatterns": ["back/*"],
   "plugins": ["prettier"]
 }
