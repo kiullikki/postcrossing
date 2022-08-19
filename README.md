@@ -22,12 +22,10 @@
 ```bash
     python -m pip install --upgrade pip
 ```
----
 из дирректории с requirements: 
 ```bash
     'pip install -r requirements.txt'
 ```
----
 из дирректории с manage.py:
 ```bash
     'python manage.py migrate'
@@ -37,4 +35,3 @@
 ```bash
     python manage.py runserver
 ```
----
