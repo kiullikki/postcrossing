@@ -7,16 +7,16 @@
 ## 1. окружение <a id=1></a>
 если нет окружения:
 ```bash
-    python -m venv env
+    python -m venv venv
 ```
 из дирректори с папкой venv :
 ```bash
-'source env/bin/activate'
+'source venv/scripts/activate'
 ```
 ---
 если есть - из дирректори с папкой venv:
 ```bash
-    'source env/bin/activate'
+    'source venv/scripts/activate'
 ```
 ## 2. зависимости <a id=2></a>
 ```bash
