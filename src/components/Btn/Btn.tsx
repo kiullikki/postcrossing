@@ -1,15 +1,16 @@
 import { FC, ButtonHTMLAttributes } from 'react';
+import style from './Btn.module.scss';
 
 const Btn: FC<
   ButtonHTMLAttributes<HTMLButtonElement> & { clickCallback?: () => void }
-> = ({ children, clickCallback, ...props }) => {
+> = ({ children, clickCallback, className, ...props }) => {
   const click = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     clickCallback?.();
   };
-
+  const classes = style.resetDefault + ' ' + className;
   return (
-    <button onClick={click} {...props}>
+    <button className={classes} onClick={click} {...props}>
       {children}
     </button>
   );

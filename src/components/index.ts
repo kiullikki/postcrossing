@@ -1,5 +1,6 @@
-import { Btn } from './Btn';
+import { Btn, styleBtn } from './Btn';
 import { NavMenu } from './NavMenu';
-import { LoginForm } from './LoginForm';
+import { Input, styleInput } from './Input';
+import { Form, styleForm } from './Form';
 
-export { Btn, NavMenu, LoginForm };
+export { Btn, styleBtn, NavMenu, Input, styleInput, Form, styleForm };

@@ -1,0 +1,66 @@
+%Auth-form-style {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 555px;
+  left: 443px;
+
+  background: linear-gradient(115.35deg, #ffffffb3 0%, #d9d9d933 100%);
+  box-shadow: 5px 5px 20px #0000001a;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+.login {
+  @extend %Auth-form-style;
+  top: 280px;
+}
+
+.registration {
+  @extend %Auth-form-style;
+  top: 155px;
+}
+
+.title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  margin-top: 25px;
+  margin-bottom: 40px;
+
+  font-weight: 600;
+  font-size: 22px;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  line-height: 29px;
+  text-transform: uppercase;
+  user-select: none;
+
+  color: #000000cc;
+}
+
+.link {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  text-align: center;
+  text-decoration-line: underline;
+
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #00000080;
+  &:hover {
+    color: #2600ff;
+  }
+}

@@ -1,0 +1,68 @@
+.wraperRegForm {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 80px;
+  margin: 0 auto;
+  margin-left: 97px;
+  margin-bottom: 16px;
+}
+.regForm {
+  padding-left: 3px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-radius: 5px;
+  border: 0px;
+  width: 100%;
+  height: 35px;
+
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: flex-end;
+  color: #000000cc;
+  &:focus {
+    outline: 0px;
+  }
+  &::placeholder {
+    color: #00000080;
+  }
+}
+
+.lableRegForm {
+  display: flex;
+  align-items: flex-end;
+
+  margin-bottom: 5px;
+  height: 21px;
+
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  cursor: default;
+  user-select: none;
+
+  color: #000000cc;
+}
+
+.errorRegForm {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 3px;
+
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: default;
+  user-select: none;
+
+  color: #ff0000;
+}

@@ -1,9 +1,11 @@
+import React from 'react';
 import { Route, Routes } from 'react-router';
 import { NavMenu } from './components';
 import { ROUTES } from './const/Routes';
 import { Eror404 } from './pages/Eror404';
 import { Main } from './pages/Main';
 import { Registration } from './pages/Registration';
+import './App.scss';
 
 function App() {
   return (

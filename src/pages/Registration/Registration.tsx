@@ -1,11 +1,92 @@
-import { FC, HTMLAttributes } from 'react';
-import { LoginForm } from '../../components';
+import {
+  FC,
+  HTMLAttributes,
+  useCallback,
+  useState,
+  ChangeEvent,
+  useEffect,
+} from 'react';
+import { Link } from 'react-router-dom';
+import { Btn, styleBtn, Input, styleInput, styleForm } from '../../components';
+import { stateFormReg, stateFormRegError } from './interface';
+import { validation } from './vlidation';
 
 const Registration: FC<HTMLAttributes<HTMLElement>> = () => {
+  const [formData, setFormData] = useState<stateFormReg>({
+    login: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+  });
+  const [formMessage, setFormMessage] = useState<stateFormRegError>({
+    errorLogin: '',
+    errorEmail: '',
+    errorPassword: '',
+    errorPasswordConfirm: '',
+  });
+  const onChangeHendler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    },
+    [setFormData]
+  );
+  useEffect(() => {
+    validation(formData, setFormMessage);
+  }, [formData]);
+
   return (
     <main>
-      <h1>Регистрация пользователя</h1>
-      <LoginForm />
+      <form className={styleForm.registration}>
+        <h2 className={styleForm.title}>Регистрация</h2>
+        <Input
+          type="text"
+          label={'Логин'}
+          error={formMessage.errorLogin}
+          wraperClass={styleInput.wraperRegForm}
+          placeholder="Name"
+          value={formData.login}
+          name="login"
+          onChange={onChangeHendler}
+        />
+        <Input
+          type="email"
+          label={'Email'}
+          error={formMessage.errorEmail}
+          wraperClass={styleInput.wraperRegForm}
+          placeholder="name@domen.ru"
+          value={formData.email}
+          name="email"
+          onChange={onChangeHendler}
+        />
+        <Input
+          type="password"
+          label={'Пароль'}
+          error={formMessage.errorPassword}
+          wraperClass={styleInput.wraperRegForm}
+          placeholder="***"
+          value={formData.password}
+          name="password"
+          onChange={onChangeHendler}
+        />
+        <Input
+          type="password"
+          label={'Проверка пароля'}
+          error={formMessage.errorPasswordConfirm}
+          wraperClass={styleInput.wraperRegForm}
+          placeholder="***"
+          value={formData.passwordConfirm}
+          name="passwordConfirm"
+          onChange={onChangeHendler}
+        />
+        <Btn className={styleBtn.sendForm}>Зарегистрироваться</Btn>
+        <Link className={styleForm.link} to={''}>
+          Уже есть аккаунт?
+        </Link>
+      </form>
     </main>
   );
 };
